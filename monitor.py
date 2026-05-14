@@ -6,7 +6,7 @@ from datetime import datetime
 import disnake
 import aiohttp
 from collections import deque
-from conf import log_hook_url
+from conf import log_hook_url, owner_id
 
 class UniversalMonitor:
     def __init__(self, bot, bot_name: str, webhook_url: str, rate_limit_threshold: int = 800):
@@ -22,7 +22,7 @@ class UniversalMonitor:
         self.process = psutil.Process(os.getpid())
         self.heartbeat_running = False
 
-        self.owner_id = 401397788870574080
+        self.owner_id = owner_id
 
         self.rate_timestamps = deque()
         self.current_rpm = 0
